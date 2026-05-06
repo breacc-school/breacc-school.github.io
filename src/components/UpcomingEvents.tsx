@@ -12,12 +12,20 @@ interface Event {
 
 const events: Event[] = [
   {
-    titleKey: "festa_junina",
-    dateKey: "coming_soon",
+    titleKey: "festa_junina_bh",
+    dateKey: "fj_bh_date",
     timeKey: "tbc",
-    locationKey: "tbc",
+    locationKey: "fj_bh_address",
     type: "festa",
-    descKey: "festa_junina_desc",
+    descKey: "tickets_soon",
+  },
+  {
+    titleKey: "festa_junina_tw",
+    dateKey: "fj_tw_date",
+    timeKey: "tbc",
+    locationKey: "fj_tw_address",
+    type: "festa",
+    descKey: "tickets_soon",
   },
 ];
 
@@ -49,7 +57,7 @@ const UpcomingEvents = () => {
           </p>
         </div>
 
-        <div className="flex justify-center max-w-md mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {events.map((ev, i) => (
             <div
               key={i}

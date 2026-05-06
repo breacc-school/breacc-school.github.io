@@ -1,7 +1,7 @@
 import teamPhoto from "@/assets/team.jpeg";
 import flagsPhoto from "@/assets/flags.jpg";
 import carnivalPhoto from "@/assets/carnival.png";
-import turmaSertaoPhoto from "@/assets/Turma-sertao.jpeg";
+import bhCarnavalPhoto from "@/assets/bh_carnaval.JPG";
 import juninaPhoto from "@/assets/gallery/Festa Junina - 2019/festa-junina-2019-2.jpeg";
 import parintinsPhoto from "@/assets/gallery/Carnaval de Parintins/Carnaval-de-Parintins-2.jpeg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 const mobileImages = [
   { src: carnivalPhoto, alt: "Carnaval", border: "border-secondary" },
   { src: teamPhoto, alt: "Equipe", border: "border-secondary" },
-  { src: turmaSertaoPhoto, alt: "Turma Sertão", border: "border-primary" },
+  { src: bhCarnavalPhoto, alt: "Carnaval Bournemouth", border: "border-primary" },
   { src: flagsPhoto, alt: "Bandeiras", border: "border-accent" },
   { src: juninaPhoto, alt: "Festa Junina", border: "border-secondary" },
   { src: parintinsPhoto, alt: "Carnaval de Parintins", border: "border-primary" },
@@ -54,7 +54,7 @@ const Hero = () => {
         </div>
         {/* Bubble — turma sertão (top-left of cluster) */}
         <div className="absolute top-[18%] right-[28%] w-40 h-40 xl:w-48 xl:h-48 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
-          <img src={turmaSertaoPhoto} alt="Turma Sertão do BREACC" className="w-full h-full object-cover" />
+          <img src={bhCarnavalPhoto} alt="Carnaval BREACC Bournemouth" className="w-full h-full object-cover" />
         </div>
         {/* Decorative circles */}
         <div className="absolute top-[18%] right-[18%] w-14 h-14 rounded-full bg-secondary/20" />
