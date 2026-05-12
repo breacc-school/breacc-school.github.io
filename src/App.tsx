@@ -27,6 +27,26 @@ const ScrollToTop = () => {
   return null;
 };
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const AnalyticsPageView = () => {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    window.gtag?.("event", "page_view", {
+      page_path: pathname + search,
+      page_location: window.location.href,
+      page_title: document.title,
+    });
+  }, [pathname, search]);
+
+  return null;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -34,6 +54,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <AnalyticsPageView />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/hero-options" element={<HeroOptions />} />
