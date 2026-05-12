@@ -14,7 +14,7 @@ const events: Event[] = [
   {
     titleKey: "festa_junina_bh",
     dateKey: "fj_bh_date",
-    timeKey: "tbc",
+    timeKey: "fj_time",
     locationKey: "fj_bh_address",
     type: "festa",
     descKey: "tickets_soon",
@@ -22,7 +22,7 @@ const events: Event[] = [
   {
     titleKey: "festa_junina_tw",
     dateKey: "fj_tw_date",
-    timeKey: "tbc",
+    timeKey: "fj_time",
     locationKey: "fj_tw_address",
     type: "festa",
     descKey: "tickets_soon",
