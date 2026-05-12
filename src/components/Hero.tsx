@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { scrollToSection } from "@/lib/scroll";
 import { useState, useCallback, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { track } from "@/lib/analytics";
 
 const mobileImages = [
   { src: carnivalPhoto, alt: "Carnaval", border: "border-secondary" },
@@ -84,6 +85,7 @@ const Hero = () => {
               href="https://forms.gle/9SpcurUZGr6RSjyr6"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track("enrol_click", { location: "hero" })}
               className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-secondary text-secondary-foreground font-bold text-lg hover:brightness-110 transition-all"
             >
               {t("hero.cta_enrol")}

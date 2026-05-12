@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { track } from "@/lib/analytics";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,21 +28,17 @@ const ScrollToTop = () => {
   return null;
 };
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
 const AnalyticsPageView = () => {
   const { pathname, search } = useLocation();
 
   useEffect(() => {
-    window.gtag?.("event", "page_view", {
+    track("page_view", {
       page_path: pathname + search,
       page_location: window.location.href,
       page_title: document.title,
     });
+    if (pathname === "/galeria") track("gallery_view");
+    if (pathname === "/projeto-pedagogico") track("pedagogy_view");
   }, [pathname, search]);
 
   return null;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Facebook, Instagram, FileText, Briefcase, Send, CheckCircle } from "lucide-react";
 import { useTranslation, Trans } from "react-i18next";
+import { track } from "@/lib/analytics";
 
 const Footer = () => {
   const [formResult, setFormResult] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -20,6 +21,7 @@ const Footer = () => {
       const data = await response.json();
       if (data.success) {
         setFormResult("success");
+        track("contact_form_submit");
         (event.target as HTMLFormElement).reset();
       } else {
         setFormResult("error");
@@ -45,6 +47,7 @@ const Footer = () => {
                     href="https://forms.gle/9SpcurUZGr6RSjyr6"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => track("enrol_click", { location: "footer" })}
                     className="underline font-semibold text-secondary hover:brightness-125 transition-colors"
                   />
                 ),
@@ -111,6 +114,7 @@ const Footer = () => {
         <div className="flex justify-center gap-6 mb-10">
           <a
             href="mailto:info@breacc.com"
+            onClick={() => track("email_click", { location: "footer" })}
             className="w-14 h-14 rounded-full bg-primary flex items-center justify-center hover:brightness-110 transition-all"
             aria-label="Email"
           >

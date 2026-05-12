@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useTranslation } from "react-i18next";
+import { track } from "@/lib/analytics";
 
 const groups = [
   { key: "jardim", emoji: "🌱", color: "bg-primary/10" },
@@ -51,6 +52,7 @@ const LearningStages = () => {
                   <p className="text-muted-foreground leading-relaxed">{t(`groups.${g.key}_desc`)}</p>
                   <a
                     href="mailto:info@breacc.com"
+                    onClick={() => track("email_click", { location: `learning_stages_${g.key}` })}
                     className="inline-flex items-center mt-4 text-sm font-bold text-primary hover:underline"
                   >
                     {t("groups.contact")}
