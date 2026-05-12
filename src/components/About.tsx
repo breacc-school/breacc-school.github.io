@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 const featureKeys = [
   { icon: BookOpen, titleKey: "teaching_title", descKey: "teaching_desc", iconBg: "bg-primary/10", iconColor: "text-primary" },
   { icon: Users, titleKey: "community_title", descKey: "community_desc", iconBg: "bg-accent/10", iconColor: "text-accent" },
-  { icon: Heart, titleKey: "culture_title", descKey: "culture_desc", link: "#/galeria", iconBg: "bg-secondary/20", iconColor: "text-secondary-foreground" },
+  { icon: Heart, titleKey: "culture_title", descKey: "culture_desc", link: "/galeria", iconBg: "bg-secondary/20", iconColor: "text-secondary-foreground" },
   { icon: Globe, titleKey: "identity_title", descKey: "identity_desc", iconBg: "bg-primary/10", iconColor: "text-primary" },
 ];
 
