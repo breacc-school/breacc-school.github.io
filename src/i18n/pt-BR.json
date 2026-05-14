@@ -47,7 +47,7 @@
     "fj_tw_date": "4 de julho de 2026",
     "fj_bh_address": "Anglo Continental School, 29-35 Wimborne RD, Bournemouth BH2 6NA",
     "fj_tw_address": "Waldegrave School, Fifth Cross Rd, Twickenham, London TW2 5LH",
-    "tickets_soon": "Ingressos à venda em breve.",
+    "buy_tickets": "Compre já seu ingresso",
     "open_day": "Open Day",
     "party": "Festa"
   },
@@ -205,7 +205,7 @@
     "policies": "Políticas e Regras",
     "careers": "Trabalhe Conosco",
     "charity_info": "O BREACC é uma instituição de caridade registrada na Inglaterra e País de Gales sob o número 1087726.",
-    "charity_link": "Visite o site da Comissão de Instituições de Caridade",
+    "charity_link": "Visite o site da Charity Commission",
     "copyright": "© {{year}} BREACC — Brazilian Educational and Cultural Centre"
   },
   "policies": {

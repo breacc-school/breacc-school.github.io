@@ -1,5 +1,6 @@
-import { CalendarDays, MapPin, Clock } from "lucide-react";
+import { CalendarDays, MapPin, Clock, Ticket } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { track } from "@/lib/analytics";
 
 interface Event {
   titleKey: string;
@@ -7,7 +8,8 @@ interface Event {
   timeKey: string;
   locationKey: string;
   type: "open-day" | "festa";
-  descKey: string;
+  ticketUrl: string;
+  ticketLocation: string;
 }
 
 const events: Event[] = [
@@ -17,7 +19,8 @@ const events: Event[] = [
     timeKey: "fj_time",
     locationKey: "fj_bh_address",
     type: "festa",
-    descKey: "tickets_soon",
+    ticketUrl: "https://www.zeffy.com/en-GB/ticketing/festa-junina-breacc-bournemouth",
+    ticketLocation: "festa_junina_bh",
   },
   {
     titleKey: "festa_junina_tw",
@@ -25,7 +28,8 @@ const events: Event[] = [
     timeKey: "fj_time",
     locationKey: "fj_tw_address",
     type: "festa",
-    descKey: "tickets_soon",
+    ticketUrl: "https://www.zeffy.com/en-GB/ticketing/festa-juina-breacc-twickenham",
+    ticketLocation: "festa_junina_tw",
   },
 ];
 
@@ -67,8 +71,7 @@ const UpcomingEvents = () => {
                 {typeBadge[ev.type]}
               </span>
               <h3 className="font-heading text-lg font-bold text-foreground">{t(`events.${ev.titleKey}`)}</h3>
-              <p className="text-sm text-muted-foreground flex-1">{t(`events.${ev.descKey}`)}</p>
-              <div className="space-y-1.5 text-sm text-foreground/70">
+              <div className="space-y-1.5 text-sm text-foreground/70 flex-1">
                 <div className="flex items-center gap-2">
                   <CalendarDays className="w-4 h-4 shrink-0" />
                   <span>{t(`events.${ev.dateKey}`)}</span>
@@ -82,6 +85,16 @@ const UpcomingEvents = () => {
                   <span>{t(`events.${ev.locationKey}`)}</span>
                 </div>
               </div>
+              <a
+                href={ev.ticketUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => track("ticket_click", { location: ev.ticketLocation })}
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-bold text-base hover:brightness-110 transition-all shadow-md"
+              >
+                <Ticket className="w-5 h-5" />
+                {t("events.buy_tickets")}
+              </a>
             </div>
           ))}
         </div>
