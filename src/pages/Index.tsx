@@ -9,6 +9,8 @@ import Locations from "@/components/Locations";
 import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { organizationJsonLd } from "@/lib/seo";
 
 const Index = () => {
   const location = useLocation();
@@ -34,6 +36,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="BREACC — Escola de Português como Língua de Herança no Reino Unido"
+        description="BREACC: escola brasileira em Bournemouth e Twickenham (Londres). Aulas de português, cultura e preparação GCSE para crianças e jovens desde 1997. Charity 1087726."
+        path="/"
+        jsonLd={organizationJsonLd}
+      />
       <Navbar />
       <Hero />
       <About />

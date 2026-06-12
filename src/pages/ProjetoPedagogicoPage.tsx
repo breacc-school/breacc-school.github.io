@@ -2,6 +2,7 @@ import { BookOpen, Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import projetoPdf from "@/assets/projeto_pedagogico.pdf";
 
 const stages = [
@@ -19,6 +20,11 @@ const ProjetoPedagogicoPage = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Projeto Pedagógico — Português como Língua de Herança | BREACC"
+        description="Conheça o projeto pedagógico da BREACC, os estágios de aprendizagem (2 a 15 anos) e o tema transversal anual, baseados em décadas de prática em POLH."
+        path="/projeto-pedagogico"
+      />
       <Navbar />
       <div className="pt-16">
         <section className="py-20 bg-background">

@@ -1,4 +1,5 @@
 import { CalendarDays, MapPin, Clock, Ticket } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { track } from "@/lib/analytics";
 
@@ -10,6 +11,12 @@ interface Event {
   type: "open-day" | "festa";
   ticketUrl: string;
   ticketLocation: string;
+  startDate: string;
+  endDate: string;
+  venueName: string;
+  street: string;
+  city: string;
+  postal: string;
 }
 
 const events: Event[] = [
@@ -21,6 +28,12 @@ const events: Event[] = [
     type: "festa",
     ticketUrl: "https://www.zeffy.com/en-GB/ticketing/festa-junina-breacc-bournemouth",
     ticketLocation: "festa_junina_bh",
+    startDate: "2026-06-28T12:00:00+01:00",
+    endDate: "2026-06-28T17:00:00+01:00",
+    venueName: "Anglo Continental School",
+    street: "29-35 Wimborne Rd",
+    city: "Bournemouth",
+    postal: "BH2 6NA",
   },
   {
     titleKey: "festa_junina_tw",
@@ -30,6 +43,12 @@ const events: Event[] = [
     type: "festa",
     ticketUrl: "https://www.zeffy.com/en-GB/ticketing/festa-juina-breacc-twickenham",
     ticketLocation: "festa_junina_tw",
+    startDate: "2026-07-04T12:00:00+01:00",
+    endDate: "2026-07-04T17:00:00+01:00",
+    venueName: "Waldegrave School",
+    street: "Fifth Cross Rd, Twickenham",
+    city: "London",
+    postal: "TW2 5LH",
   },
 ];
 
@@ -46,8 +65,43 @@ const UpcomingEvents = () => {
     festa: t("events.party"),
   };
 
+  const eventJsonLd = events.map((ev) => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: t(`events.${ev.titleKey}`),
+    startDate: ev.startDate,
+    endDate: ev.endDate,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: ev.venueName,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: ev.street,
+        addressLocality: ev.city,
+        postalCode: ev.postal,
+        addressCountry: "GB",
+      },
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "BREACC — Brazilian Educational and Cultural Centre",
+      url: "https://breacc.org.uk",
+    },
+    offers: {
+      "@type": "Offer",
+      url: ev.ticketUrl,
+      availability: "https://schema.org/InStock",
+      validFrom: "2026-01-01T00:00:00+00:00",
+    },
+  }));
+
   return (
     <section id="eventos" className="py-10 md:py-16 bg-muted/40">
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(eventJsonLd)}</script>
+      </Helmet>
       <div className="container px-6">
         <div className="text-center mb-12">
           <span className="inline-block text-sm font-bold tracking-wider uppercase text-secondary mb-2">

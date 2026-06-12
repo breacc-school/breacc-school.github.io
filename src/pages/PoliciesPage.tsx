@@ -2,6 +2,7 @@ import { FileText, Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 import aimsPdf from "@/assets/policies/Aims-us.pdf";
 import childProtectionPdf from "@/assets/policies/Child-Protection-and-safeguarding.pdf";
@@ -30,6 +31,11 @@ const PoliciesPage = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Políticas e Salvaguarda — BREACC"
+        description="Políticas oficiais da BREACC: proteção à criança, código de conduta, e-safety, igualdade e demais documentos da nossa instituição de caridade."
+        path="/politicas"
+      />
       <Navbar />
       <div className="pt-16">
         <section className="py-20 bg-background">
