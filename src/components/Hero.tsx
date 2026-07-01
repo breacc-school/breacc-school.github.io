@@ -82,7 +82,7 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a
-              href="https://forms.gle/9SpcurUZGr6RSjyr6"
+              href="https://forms.gle/jR3ifgJpFK3As8N18"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track("enrol_click", { location: "hero" })}

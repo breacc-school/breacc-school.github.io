@@ -44,7 +44,7 @@ const Footer = () => {
               components={{
                 a: (
                   <a
-                    href="https://forms.gle/9SpcurUZGr6RSjyr6"
+                    href="https://forms.gle/jR3ifgJpFK3As8N18"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => track("enrol_click", { location: "footer" })}
