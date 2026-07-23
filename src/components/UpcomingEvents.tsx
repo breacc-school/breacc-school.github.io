@@ -1,7 +1,6 @@
-import { CalendarDays, MapPin, Clock, Ticket } from "lucide-react";
+import { CalendarDays, MapPin, Clock, CheckCircle2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
-import { track } from "@/lib/analytics";
 
 interface Event {
   titleKey: string;
@@ -9,8 +8,6 @@ interface Event {
   timeKey: string;
   locationKey: string;
   type: "open-day" | "festa";
-  ticketUrl: string;
-  ticketLocation: string;
   startDate: string;
   endDate: string;
   venueName: string;
@@ -26,8 +23,6 @@ const events: Event[] = [
     timeKey: "fj_time",
     locationKey: "fj_bh_address",
     type: "festa",
-    ticketUrl: "https://www.zeffy.com/en-GB/ticketing/festa-junina-breacc-bournemouth",
-    ticketLocation: "festa_junina_bh",
     startDate: "2026-06-28T12:00:00+01:00",
     endDate: "2026-06-28T17:00:00+01:00",
     venueName: "Anglo Continental School",
@@ -41,8 +36,6 @@ const events: Event[] = [
     timeKey: "fj_time",
     locationKey: "fj_tw_address",
     type: "festa",
-    ticketUrl: "https://www.zeffy.com/en-GB/ticketing/festa-juina-breacc-twickenham",
-    ticketLocation: "festa_junina_tw",
     startDate: "2026-07-04T12:00:00+01:00",
     endDate: "2026-07-04T17:00:00+01:00",
     venueName: "Waldegrave School",
@@ -89,12 +82,6 @@ const UpcomingEvents = () => {
       name: "BREACC — Brazilian Educational and Cultural Centre",
       url: "https://breacc.org.uk",
     },
-    offers: {
-      "@type": "Offer",
-      url: ev.ticketUrl,
-      availability: "https://schema.org/InStock",
-      validFrom: "2026-01-01T00:00:00+00:00",
-    },
   }));
 
   return (
@@ -139,16 +126,10 @@ const UpcomingEvents = () => {
                   <span>{t(`events.${ev.locationKey}`)}</span>
                 </div>
               </div>
-              <a
-                href={ev.ticketUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => track("ticket_click", { location: ev.ticketLocation })}
-                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-bold text-base hover:brightness-110 transition-all shadow-md"
-              >
-                <Ticket className="w-5 h-5" />
-                {t("events.buy_tickets")}
-              </a>
+              <div className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 rounded-lg bg-muted text-muted-foreground font-bold text-base border border-border">
+                <CheckCircle2 className="w-5 h-5" />
+                {t("events.event_passed")}
+              </div>
             </div>
           ))}
         </div>
