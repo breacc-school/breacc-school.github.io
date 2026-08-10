@@ -38,7 +38,9 @@ const Index = () => {
     <div className="min-h-screen">
       <SEO
         title="BREACC — Escola de Português como Língua de Herança no Reino Unido"
+        titleEn="BREACC — Brazilian School | Portuguese Classes for Children UK"
         description="BREACC: escola brasileira em Bournemouth e Twickenham (Londres). Aulas de português, cultura e preparação GCSE para crianças e jovens desde 1997. Charity 1087726."
+        descriptionEn="BREACC is a UK registered charity (1087726) teaching Portuguese as a Heritage Language and Brazilian culture to children in Bournemouth and Twickenham/London since 1997. GCSE Portuguese preparation available."
         path="/"
         jsonLd={organizationJsonLd}
       />

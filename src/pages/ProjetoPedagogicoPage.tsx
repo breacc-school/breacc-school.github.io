@@ -22,7 +22,9 @@ const ProjetoPedagogicoPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Projeto Pedagógico — Português como Língua de Herança | BREACC"
+        titleEn="Pedagogical Project — Portuguese as a Heritage Language | BREACC"
         description="Conheça o projeto pedagógico da BREACC, os estágios de aprendizagem (2 a 15 anos) e o tema transversal anual, baseados em décadas de prática em POLH."
+        descriptionEn="BREACC's pedagogical project for Portuguese as a Heritage Language (POLH): learning stages for ages 2 to 15, annual transversal theme, based on decades of practice."
         path="/projeto-pedagogico"
       />
       <Navbar />

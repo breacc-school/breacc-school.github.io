@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Mail, Facebook, Instagram, FileText, Briefcase, Send, CheckCircle } from "lucide-react";
 import { useTranslation, Trans } from "react-i18next";
 import { track } from "@/lib/analytics";
+import { useLangPath } from "@/lib/i18n-routing";
 
 const Footer = () => {
   const [formResult, setFormResult] = useState<"idle" | "sending" | "success" | "error">("idle");
   const { t } = useTranslation();
+  const policiesPath = useLangPath("/politicas");
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -142,7 +144,7 @@ const Footer = () => {
 
         <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm">
           <a
-            href="/politicas"
+            href={policiesPath}
             className="inline-flex items-center gap-2 text-primary-foreground/60 hover:text-primary-foreground transition-colors"
           >
             <FileText className="w-4 h-4" />

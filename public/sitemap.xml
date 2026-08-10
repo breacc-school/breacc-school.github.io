@@ -1,37 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://breacc.org.uk/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://breacc.org.uk/en</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://breacc.org.uk/projeto-pedagogico</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/projeto-pedagogico"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/projeto-pedagogico"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/projeto-pedagogico"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://breacc.org.uk/en/projeto-pedagogico</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/projeto-pedagogico"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/projeto-pedagogico"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/projeto-pedagogico"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://breacc.org.uk/historia</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/historia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/historia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/historia"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://breacc.org.uk/en/historia</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/historia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/historia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/historia"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://breacc.org.uk/equipe</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/equipe"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/equipe"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/equipe"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://breacc.org.uk/en/equipe</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/equipe"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/equipe"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/equipe"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://breacc.org.uk/galeria</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/galeria"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/galeria"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/galeria"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://breacc.org.uk/en/galeria</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/galeria"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/galeria"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/galeria"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://breacc.org.uk/faq</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/faq"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://breacc.org.uk/en/faq</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/faq"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://breacc.org.uk/politicas</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/politicas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/politicas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/politicas"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://breacc.org.uk/en/politicas</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://breacc.org.uk/politicas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://breacc.org.uk/en/politicas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://breacc.org.uk/politicas"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

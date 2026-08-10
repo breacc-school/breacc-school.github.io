@@ -1,7 +1,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { track } from "@/lib/analytics";
+import { getLangFromPath, stripLangPrefix } from "@/lib/i18n-routing";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,21 +30,49 @@ const ScrollToTop = () => {
   return null;
 };
 
+const LanguageSync = () => {
+  const { pathname } = useLocation();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const urlLang = getLangFromPath(pathname);
+    if (urlLang !== i18n.language) {
+      void i18n.changeLanguage(urlLang);
+    }
+  }, [pathname, i18n]);
+
+  return null;
+};
+
 const AnalyticsPageView = () => {
   const { pathname, search } = useLocation();
 
   useEffect(() => {
+    const canonical = stripLangPrefix(pathname);
     track("page_view", {
       page_path: pathname + search,
       page_location: window.location.href,
       page_title: document.title,
     });
-    if (pathname === "/galeria") track("gallery_view");
-    if (pathname === "/projeto-pedagogico") track("pedagogy_view");
+    if (canonical === "/galeria") track("gallery_view");
+    if (canonical === "/projeto-pedagogico") track("pedagogy_view");
   }, [pathname, search]);
 
   return null;
 };
+
+const localisedRoutes = (
+  <>
+    <Route index element={<Index />} />
+    <Route path="hero-options" element={<HeroOptions />} />
+    <Route path="historia" element={<HistoryPage />} />
+    <Route path="equipe" element={<EquipePage />} />
+    <Route path="faq" element={<FAQPage />} />
+    <Route path="galeria" element={<GalleryPage />} />
+    <Route path="politicas" element={<PoliciesPage />} />
+    <Route path="projeto-pedagogico" element={<ProjetoPedagogicoPage />} />
+  </>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -51,18 +81,11 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <LanguageSync />
         <AnalyticsPageView />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/hero-options" element={<HeroOptions />} />
-          <Route path="/historia" element={<HistoryPage />} />
-          <Route path="/equipe" element={<EquipePage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/galeria" element={<GalleryPage />} />
-          <Route path="/politicas" element={<PoliciesPage />} />
-          <Route path="/projeto-pedagogico" element={<ProjetoPedagogicoPage />} />
-          {/* /recursos redirects to gallery now */}
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/">{localisedRoutes}</Route>
+          <Route path="/en">{localisedRoutes}</Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

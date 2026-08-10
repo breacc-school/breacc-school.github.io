@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
 import { scrollToSection } from "@/lib/scroll";
+import { getLangFromPath, stripLangPrefix, withLangPrefix, useLangPath, useOtherLangPath } from "@/lib/i18n-routing";
 
 type NavLinkItem =
   | { key: string; type: "route"; href: string }
@@ -38,26 +39,29 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t, i18n } = useTranslation();
+  const homePath = useLangPath("/");
+  const otherLangPath = useOtherLangPath();
+  const currentLang = getLangFromPath(location.pathname);
 
   const label = (key: string) => t(`nav.${key}`);
+  const localise = (href: string) => withLangPrefix(href, currentLang);
 
   const toggleLang = () => {
-    const next = i18n.language?.startsWith("pt") ? "en" : "pt";
-    i18n.changeLanguage(next);
+    navigate(otherLangPath);
   };
 
   const handleNavClick = (e: React.MouseEvent, item: NavLinkItem) => {
     if (item.type === "route") {
       e.preventDefault();
-      navigate(item.href);
+      navigate(localise(item.href));
       setOpen(false);
       setMobileSobreOpen(false);
     } else {
-      if (location.pathname === "/") {
+      if (stripLangPrefix(location.pathname) === "/") {
         scrollToSection(e, item.id);
       } else {
         e.preventDefault();
-        navigate("/", { state: { scrollTo: item.id } });
+        navigate(homePath, { state: { scrollTo: item.id } });
       }
       setOpen(false);
       setMobileSobreOpen(false);
@@ -67,7 +71,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-16">
-        <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }} className="flex items-center gap-2">
+        <a href={homePath} onClick={(e) => { e.preventDefault(); navigate(homePath); }} className="flex items-center gap-2">
           <img src={logo} alt="BREACC Logo" className="h-12 w-auto" />
         </a>
 
@@ -89,7 +93,7 @@ const Navbar = () => {
                       {item.children.map((subItem) => (
                         <a
                           key={subItem.key}
-                          href={subItem.type === "route" ? subItem.href : `#${subItem.id}`}
+                          href={subItem.type === "route" ? localise(subItem.href) : `#${subItem.id}`}
                           onClick={(e) => handleNavClick(e, subItem)}
                           className="block rounded px-3 py-2 text-sm font-semibold text-foreground/70 hover:bg-muted hover:text-primary transition-colors"
                         >
@@ -101,7 +105,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <a
-                  href={item.type === "route" ? item.href : `#${item.id}`}
+                  href={item.type === "route" ? localise(item.href) : `#${item.id}`}
                   onClick={(e) => handleNavClick(e, item)}
                   className="text-sm font-semibold text-foreground/70 hover:text-primary transition-colors"
                 >
@@ -165,7 +169,7 @@ const Navbar = () => {
                         {item.children.map((subItem) => (
                           <li key={subItem.key}>
                             <a
-                              href={subItem.type === "route" ? subItem.href : `#${subItem.id}`}
+                              href={subItem.type === "route" ? localise(subItem.href) : `#${subItem.id}`}
                               className="text-sm font-semibold text-foreground/70 hover:text-primary transition-colors"
                               onClick={(e) => handleNavClick(e, subItem)}
                             >
@@ -178,7 +182,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <a
-                    href={item.type === "route" ? item.href : `#${item.id}`}
+                    href={item.type === "route" ? localise(item.href) : `#${item.id}`}
                     className="text-sm font-semibold text-foreground/70 hover:text-primary transition-colors"
                     onClick={(e) => handleNavClick(e, item)}
                   >

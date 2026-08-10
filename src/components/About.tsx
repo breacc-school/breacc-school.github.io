@@ -1,5 +1,6 @@
 import { BookOpen, Users, Heart, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useLangPath } from "@/lib/i18n-routing";
 
 const featureKeys = [
   { icon: BookOpen, titleKey: "teaching_title", descKey: "teaching_desc", iconBg: "bg-primary/10", iconColor: "text-primary" },
@@ -10,6 +11,7 @@ const featureKeys = [
 
 const About = () => {
   const { t } = useTranslation();
+  const galleryPath = useLangPath("/galeria");
 
   return (
     <section id="sobre" className="py-24 bg-background">
@@ -35,7 +37,7 @@ const About = () => {
               <h3 className="font-heading text-xl font-bold text-foreground mb-2">{t(`about.${f.titleKey}`)}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{t(`about.${f.descKey}`)}</p>
               {f.link && (
-                <a href={f.link} className="inline-block mt-3 text-sm font-bold text-primary hover:underline">
+                <a href={galleryPath} className="inline-block mt-3 text-sm font-bold text-primary hover:underline">
                   {t("about.view_gallery")}
                 </a>
               )}

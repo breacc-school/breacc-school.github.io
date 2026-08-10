@@ -33,7 +33,9 @@ const PoliciesPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Políticas e Salvaguarda — BREACC"
+        titleEn="Policies and Safeguarding — BREACC UK Charity"
         description="Políticas oficiais da BREACC: proteção à criança, código de conduta, e-safety, igualdade e demais documentos da nossa instituição de caridade."
+        descriptionEn="Official BREACC policies: child protection, code of behaviour, e-safety, equalities, and all safeguarding documents of our registered UK charity (1087726)."
         path="/politicas"
       />
       <Navbar />

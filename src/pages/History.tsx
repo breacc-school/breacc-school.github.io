@@ -8,7 +8,9 @@ const HistoryPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Nossa História — BREACC desde 1997"
+        titleEn="Our History — BREACC since 1997"
         description="Fundada em 1997, a BREACC é a escola de Português como Língua de Herança mais antiga do Reino Unido. Conheça nossa trajetória e missão."
+        descriptionEn="Founded in 1997, BREACC is the oldest Portuguese Heritage Language school in the UK. Learn about our journey, mission, and community of Brazilian families."
         path="/historia"
       />
       <Navbar />
