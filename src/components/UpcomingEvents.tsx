@@ -7,6 +7,7 @@ interface Event {
   dateKey: string;
   timeKey: string;
   locationKey: string;
+  descriptionKey: string;
   type: "open-day" | "festa";
   startDate: string;
   endDate: string;
@@ -22,6 +23,7 @@ const events: Event[] = [
     dateKey: "fj_bh_date",
     timeKey: "fj_time",
     locationKey: "fj_bh_address",
+    descriptionKey: "fj_description",
     type: "festa",
     startDate: "2026-06-28T12:00:00+01:00",
     endDate: "2026-06-28T17:00:00+01:00",
@@ -35,6 +37,7 @@ const events: Event[] = [
     dateKey: "fj_tw_date",
     timeKey: "fj_time",
     locationKey: "fj_tw_address",
+    descriptionKey: "fj_description",
     type: "festa",
     startDate: "2026-07-04T12:00:00+01:00",
     endDate: "2026-07-04T17:00:00+01:00",
@@ -62,6 +65,8 @@ const UpcomingEvents = () => {
     "@context": "https://schema.org",
     "@type": "Event",
     name: t(`events.${ev.titleKey}`),
+    description: t(`events.${ev.descriptionKey}`),
+    image: ["https://breacc.org.uk/og-image.png"],
     startDate: ev.startDate,
     endDate: ev.endDate,
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
@@ -81,6 +86,19 @@ const UpcomingEvents = () => {
       "@type": "Organization",
       name: "BREACC — Brazilian Educational and Cultural Centre",
       url: "https://breacc.org.uk",
+    },
+    performer: {
+      "@type": "Organization",
+      name: "BREACC — Brazilian Educational and Cultural Centre",
+      url: "https://breacc.org.uk",
+    },
+    offers: {
+      "@type": "Offer",
+      url: "https://breacc.org.uk/",
+      availability: "https://schema.org/SoldOut",
+      price: "0",
+      priceCurrency: "GBP",
+      validFrom: "2026-01-01T00:00:00+00:00",
     },
   }));
 
